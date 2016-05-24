@@ -1,4 +1,4 @@
-#include "automaton.h"
+#include "gameoflife.h"
 
 GameOfLife::GameOfLife(sf::RenderWindow* window) {
     runCount = 0;

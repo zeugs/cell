@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include "matrix.h"
-#include "automaton.h"
+#include "gameoflife.h"
 
 int main()
 {
