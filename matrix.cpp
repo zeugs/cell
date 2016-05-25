@@ -1,4 +1,5 @@
 #include "matrix.h"
+#include <iostream>
 
 Matrix::Matrix() {
     useFirstMatrix = true;
@@ -54,4 +55,46 @@ void GameOfLifeRenderer::renderMatrix() {
         }
     }
     window->display();
+};
+
+GameOfLifeAgeRenderer::GameOfLifeAgeRenderer() {
+    unitBox.setSize(sf::Vector2f(PIX_WIDTH, PIX_HEIGHT));
+};
+
+void GameOfLifeAgeRenderer::renderMatrix() {
+    window->clear();
+    for (int x = 0; x < MATRIX_WIDTH; x++) {
+        for (int y = 0; y < MATRIX_HEIGHT; y++) {
+            unitBox.setPosition(x * PIX_WIDTH, y * PIX_HEIGHT);
+            bool lives = matrix->fieldB[x][y] > 0;
+            sf::Color col;
+            if (lives) {
+                unitBox.setFillColor(sf::Color::White);
+                //std::cout << matrix->fieldB[x][y] << " ";
+                switch (matrix->fieldB[x][y]) {
+                case 0 ... 6:
+                    col = sf::Color::White;
+                    break;
+                case 7 ... 14:
+                    col = sf::Color::Yellow;
+                    break;
+                case 15 ... 26:
+                    col = sf::Color::Blue;
+                    break;
+                case 27 ... 65:
+                    col = sf::Color::Green;
+                    break;
+                case 66 ... 82:
+                    col = sf::Color::Magenta;
+                    break;
+                }
+                unitBox.setFillColor(col);
+            } else {
+                unitBox.setFillColor(sf::Color::Black);
+            }
+            window->draw(unitBox);
+        }
+    }
+    window->display();
+    //std::cout << std::endl;
 };

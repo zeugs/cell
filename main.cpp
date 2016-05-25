@@ -3,19 +3,30 @@
 
 #include "matrix.h"
 #include "gameoflife.h"
+#include "gameoflifeage.h"
 
 int main()
 {
-    int refreshMs = 19;
-    bool calcAndUpdate = true;
+    int refreshMs = 150;
+    bool calcAndUpdate = false;
+    // 0 = GOL, 1 = GOL Age
+    int usedAutomaton = 1;
 
     sf::RenderWindow window(sf::VideoMode(FULL_WIDTH, FULL_HEIGHT), "Cell");
-    GameOfLife automaton(&window);
+    GameOfLife gameOfLife(&window);
+    GameOfLifeAge gameOfLifeAge(&window);
+    Automaton* automaton;
     sf::Clock Clock;
 
     srand(time(NULL));
 
-    automaton.initialize(2);
+    if (usedAutomaton == 0) {
+        automaton = &gameOfLife;
+    } else if (usedAutomaton == 1) {
+        automaton = &gameOfLifeAge;
+    }
+
+    automaton->initialize(0);
 
     sf::Time runSpan;
 
@@ -32,12 +43,12 @@ int main()
         runSpan += timeSpan;
 
         if (!calcAndUpdate || (calcAndUpdate && timeSpan.asMilliseconds() > refreshMs)) {
-            automaton.evaluate();
+            automaton->evaluate();
         }
 
         if (timeSpan.asMilliseconds() > refreshMs) {
-            std::cout << "run " << automaton.runCount << " at " << runSpan.asSeconds() << " (refresh interval: " << refreshMs << ")" << std::endl;
-            automaton.render();
+            std::cout << "run " << automaton->runCount << " at " << runSpan.asSeconds() << " (refresh interval: " << refreshMs << ")" << std::endl;
+            automaton->render();
             Clock.restart();
         }
     }

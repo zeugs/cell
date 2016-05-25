@@ -2,17 +2,16 @@
 #include "automaton.h"
 #include "matrix.h"
 
-#ifndef AUTOMATON_HPP
-#define AUTOMATON_HPP
+#ifndef GAMEOFLIFE_HPP
+#define GAMEOFLIFE_HPP
 
-class GameOfLife : Automaton {
+class GameOfLife : public Automaton {
 
 private:
     GameOfLifeRenderer golRenderer;
 
 public:
     Matrix matrix;
-    long runCount;
 
     /*
     useRandom = 0;
@@ -28,4 +27,4 @@ public:
     bool shouldLive(int posX, int posY);
 };
 
-#endif // AUTOMATON_HPP
+#endif // GAMEOFLIFE_HPP

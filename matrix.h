@@ -38,4 +38,16 @@ public:
     void renderMatrix();
 };
 
+class GameOfLifeAgeRenderer {
+private:
+    sf::RectangleShape unitBox;
+
+public:
+    Matrix* matrix;
+    sf::RenderWindow* window;
+
+    GameOfLifeAgeRenderer();
+    void renderMatrix();
+};
+
 #endif // MATRIX_HPP
