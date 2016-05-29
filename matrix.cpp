@@ -98,3 +98,24 @@ void GameOfLifeAgeRenderer::renderMatrix() {
     window->display();
     //std::cout << std::endl;
 };
+
+DrugTestRenderer::DrugTestRenderer() {
+    unitBox.setSize(sf::Vector2f(PIX_WIDTH, PIX_HEIGHT));
+};
+
+void DrugTestRenderer::renderMatrix() {
+    window->clear();
+    for (int x = 0; x < MATRIX_WIDTH; x++) {
+        for (int y = 0; y < MATRIX_HEIGHT; y++) {
+            int color = matrix->fieldB[x][y];
+            unsigned char red = (color & 0xFF000000) >> 24;
+            unsigned char green = (color & 0x00FF0000) >> 16;
+            unsigned char blue = (color & 0x0000FF00) >> 8;
+
+            unitBox.setPosition(x * PIX_WIDTH, y * PIX_HEIGHT);
+            unitBox.setFillColor(sf::Color(red, green, blue));
+            window->draw(unitBox);
+        }
+    }
+    window->display();
+};

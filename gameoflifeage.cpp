@@ -48,7 +48,7 @@ void GameOfLifeAge::initialize(int initMethod) {
         matrix.fieldA[89][51] = 40;
         matrix.fieldA[91][50] = 40;
     }
-};
+}
 
 void GameOfLifeAge::evaluate() {
     matrix.switchActiveField();
@@ -56,7 +56,7 @@ void GameOfLifeAge::evaluate() {
     runCount++;
     for (int x = 0; x < MATRIX_WIDTH; x++) {
         for (int y = 0; y < MATRIX_HEIGHT; y++) {
-            bool lives = shouldLive(x, y);
+            int lives = shouldLive(x, y);
             if (lives) {
                 matrix.fieldB[x][y] = matrix.fieldA[x][y] < 83 ? matrix.fieldA[x][y] + 1: 0;
             } else {
@@ -70,7 +70,7 @@ void GameOfLifeAge::render() {
     golRenderer.renderMatrix();
 }
 
-bool GameOfLifeAge::shouldLive(int posX, int posY) {
+int GameOfLifeAge::shouldLive(int posX, int posY) {
     int neighbors[8];
 
     // 0 1 2
@@ -114,7 +114,7 @@ bool GameOfLifeAge::shouldLive(int posX, int posY) {
         }
     }
 
-    bool alive = false;
+    bool alive = 0;
     if (currentState > 0) {
         float factor = 0;
 
@@ -143,12 +143,12 @@ bool GameOfLifeAge::shouldLive(int posX, int posY) {
 
         // stasis
         if (neighborsResult >= 80 && neighborsResult < 336) {
-            alive = true;
+            alive = currentState;
         }
     } else if (currentState == 0) {
         // reproduction
         if (livingNeighbors > 200) {
-            alive = true;
+            alive = 1;
         }
     }
 

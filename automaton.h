@@ -5,7 +5,7 @@
 
 class Automaton {
 private:
-    virtual bool shouldLive(int posX, int posY) = 0;
+    virtual int shouldLive(int posX, int posY) = 0;
 public:
     long runCount;
     virtual void initialize(int initMethod) = 0;

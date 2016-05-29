@@ -50,4 +50,16 @@ public:
     void renderMatrix();
 };
 
+class DrugTestRenderer {
+private:
+    sf::RectangleShape unitBox;
+
+public:
+    Matrix* matrix;
+    sf::RenderWindow* window;
+
+    DrugTestRenderer();
+    void renderMatrix();
+};
+
 #endif // MATRIX_HPP

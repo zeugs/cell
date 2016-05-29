@@ -55,21 +55,16 @@ void GameOfLife::evaluate() {
     runCount++;
     for (int x = 0; x < MATRIX_WIDTH; x++) {
         for (int y = 0; y < MATRIX_HEIGHT; y++) {
-            bool lives = shouldLive(x, y);
-            if (lives) {
-                matrix.fieldB[x][y] = 1;
-            } else {
-                matrix.fieldB[x][y] = 0;
-            }
+            matrix.fieldB[x][y] = shouldLive(x, y);
         }
     }
-};
+}
 
 void GameOfLife::render() {
     golRenderer.renderMatrix();
 }
 
-bool GameOfLife::shouldLive(int posX, int posY) {
+int GameOfLife::shouldLive(int posX, int posY) {
     int neighbors[8];
 
     // 0 1 2
@@ -99,16 +94,16 @@ bool GameOfLife::shouldLive(int posX, int posY) {
         - alive and less than 2 or more than 3 => under-/overpopulation
         - dead and 3 neighbors => reproduction
     */
-    bool alive = false;
+    int alive = 0;
     if (currentState == 1) {
         // stasis
         if (livingNeighbors == 2 || livingNeighbors == 3) {
-            alive = true;
+            alive = 1;
         }
     } else if (currentState == 0) {
         // reproduction
         if (livingNeighbors == 3) {
-            alive = true;
+            alive = 1;
         }
     }
 
