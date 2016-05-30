@@ -12,7 +12,7 @@ int main()
     bool calcAndUpdate = true;
 
     // 0 = GOL, 1 = GOL Age, 2 = Drug Test
-    int usedAutomaton = 2;
+    int usedAutomaton = 1;
 
     sf::RenderWindow window(sf::VideoMode(FULL_WIDTH, FULL_HEIGHT), "Cell");
     GameOfLife gameOfLife(&window);
