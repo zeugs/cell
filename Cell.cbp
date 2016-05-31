@@ -20,7 +20,7 @@
 					<Add library="sfml-graphics" />
 					<Add library="sfml-system" />
 					<Add library="sfml-window" />
-					<Add directory="C:/lib/SFML-2.3.2/lib" />
+					<Add directory="lib" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -34,9 +34,10 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="sfml-graphics-s" />
-					<Add library="sfml-system-s" />
-					<Add library="sfml-window-s" />
+					<Add library="sfml-graphics" />
+					<Add library="sfml-system" />
+					<Add library="sfml-window" />
+					<Add directory="lib" />
 				</Linker>
 			</Target>
 		</Build>

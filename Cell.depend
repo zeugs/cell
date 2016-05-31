@@ -397,7 +397,7 @@
 	"automaton.h"
 	"matrix.h"
 
-1464484137 source:e:\prj\2016\cell\main.cpp
+1464723045 source:e:\prj\2016\cell\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"matrix.h"
