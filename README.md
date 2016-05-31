@@ -10,6 +10,14 @@ Dependencies: gcc/MinGW, SFML, Code::Blocks (optional)
 
 On Windows download Code::Blocks with MinGW included. Install the software with default settings.
 
-You should be able to open the cbp file and compile the software in debug mode.
+Get the current SFML version (2.3.2 was used here) and either 
 
-Note: Release mode is currently not working.
+- extract include and lib files to your project, so you can use the Code::Blocks project file (cbp) directly or
+- extract the files to a directory of your liking and configure the project as needed
+
+Todo
+----
+
+- provide configuration via command line or options file
+- enhance GoL Age automaton
+- get started with DrugTest automaton
