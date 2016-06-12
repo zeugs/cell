@@ -5,19 +5,21 @@
 #include "gameoflife.h"
 #include "gameoflifeage.h"
 #include "drugtest.h"
+#include "starships.h"
 
 int main()
 {
     int refreshMs = 50;
     bool calcAndUpdate = true;
 
-    // 0 = GOL, 1 = GOL Age, 2 = Drug Test
-    int usedAutomaton = 1;
+    // 0 = GOL, 1 = GOL Age, 2 = Drug Test, 3 = Star Ships
+    int usedAutomaton = 3;
 
     sf::RenderWindow window(sf::VideoMode(FULL_WIDTH, FULL_HEIGHT), "Cell");
     GameOfLife gameOfLife(&window);
     GameOfLifeAge gameOfLifeAge(&window);
     DrugTest drugTest(&window);
+    StarShips starShips(&window);
 
     Automaton* automaton;
     sf::Clock Clock;
@@ -30,6 +32,8 @@ int main()
         automaton = &gameOfLifeAge;
     } else if (usedAutomaton == 2) {
         automaton = &drugTest;
+    } else if (usedAutomaton == 3) {
+        automaton = &starShips;
     }
 
     automaton->initialize(0);

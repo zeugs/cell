@@ -11,7 +11,7 @@ void DrugTest::initialize(int initMethod) {
         for (int x = 0; x < MATRIX_WIDTH; x++) {
             for (int y = 0; y < MATRIX_WIDTH; y++) {
                 if (rand() % 10 == 0) {
-                    matrix.fieldA[x][y] = 0xAAAAAA;
+                    matrix.fieldA[x][y] = rand() % 0xFFFFFF;
                 }
             }
         }
@@ -92,13 +92,13 @@ int DrugTest::shouldLive(int posX, int posY) {
         // stasis
         alive = livingNeighbors;
         // overflow
-        if (livingNeighbors > 0xFFFFFF) {
+        if (currentState > 0xFFFFFF * 5) {
             alive = 0;
         }
     } else if (currentState == 0) {
         // reproduction
-        if (livingNeighbors > 300000 && livingNeighbors < 3000000) {
-            alive = 100000;
+        if (livingNeighbors > 154999 && livingNeighbors < 9000000) {
+            alive = 155000;//(runCount % 100) * 100000;
         }
     }
 

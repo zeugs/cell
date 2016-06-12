@@ -8,7 +8,7 @@
 
 1464487409 e:\prj\2016\cell\automaton.h
 
-1464483738 e:\prj\2016\cell\matrix.h
+1465479807 e:\prj\2016\cell\matrix.h
 	<SFML/Graphics.hpp>
 
 1429784053 c:\lib\sfml-2.3.2\include\sfml\graphics.hpp
@@ -397,15 +397,16 @@
 	"automaton.h"
 	"matrix.h"
 
-1464723045 source:e:\prj\2016\cell\main.cpp
+1465479344 source:e:\prj\2016\cell\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"matrix.h"
 	"gameoflife.h"
 	"gameoflifeage.h"
 	"drugtest.h"
+	"starships.h"
 
-1464486881 source:e:\prj\2016\cell\matrix.cpp
+1465369739 source:e:\prj\2016\cell\matrix.cpp
 	"matrix.h"
 	<iostream>
 
@@ -787,10 +788,17 @@
 	<string>
 	<vector>
 
-1464487647 source:e:\prj\2016\cell\drugtest.cpp
+1465479703 source:e:\prj\2016\cell\drugtest.cpp
 	"drugtest.h"
 
 1464487421 e:\prj\2016\cell\drugtest.h
 	"automaton.h"
 	"matrix.h"
+
+1465369615 e:\prj\2016\cell\starships.h
+	"automaton.h"
+	"matrix.h"
+
+1465369796 source:e:\prj\2016\cell\starships.cpp
+	"starships.h"
 

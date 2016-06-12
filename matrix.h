@@ -62,4 +62,15 @@ public:
     void renderMatrix();
 };
 
+class StarShipsRenderer {
+private:
+    sf::RectangleShape unitBox;
+
+public:
+    Matrix* matrix;
+    sf::RenderWindow* window;
+
+    StarShipsRenderer();
+    void renderMatrix();
+};
 #endif // MATRIX_HPP
